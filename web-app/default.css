@@ -218,3 +218,36 @@ footer
     height: auto;
     width: min(360px, 80%);
 }
+
+.instructions
+{
+    background: var(--card-background);
+    border: 2px solid var(--card-border);
+    border-radius: 12px;
+    max-width: 40rem;
+    padding: var(--gap);
+    width: 100%;
+}
+
+.instructions summary
+{
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.instructions ol
+{
+    margin: 0.6rem 0 0;
+    padding-left: 1.4rem;
+}
+
+.instructions li
+{
+    margin: 0.3rem 0;
+}
+
+.instructions p
+{
+    margin: 0.6rem 0 0;
+}
