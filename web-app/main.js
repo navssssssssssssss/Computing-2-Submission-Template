@@ -2,8 +2,8 @@
 import R from "./ramda.js";
 import Dobble from "./Dobble.js";
 
-// Each symbol id (the array index) maps to an image and an accessible label.
-// Replace the paths with the artwork placed in the assets folder.
+// Image and name for each symbol. Its position in the list is its id.
+// Put the matching art in the assets folder.
 const symbols = [
     {"image": "./assets/instant_noodles.png", "name": "Instant noodles"},
     {"image": "./assets/energy_drink.png", "name": "Energy drink"},
@@ -20,15 +20,14 @@ const symbols = [
     {"image": "./assets/highlighter.png", "name": "Highlighter"}
 ];
 
-// Presentation tuning for the scattered card layout.
+// Settings for how symbols are scattered on a card.
 const centre_percent = 50;
 const full_turn_radians = 2 * Math.PI;
 const max_tilt_degrees = 50;
 const min_scale = 0.6;
 const max_scale = 1.35;
-// Half a symbol's width as a percentage of the card, used to keep symbols
-// inside the card and clear of one another (it tracks --symbol-size over
-// --card-size), with a budget of attempts to find a free spot.
+// Roughly half a symbol's width, as a percent of the card.
+// These keep symbols from overlapping or spilling off the edge.
 const symbol_radius_percent = 10;
 const edge_margin_percent = 1;
 const spacing_factor = 1;
@@ -66,7 +65,7 @@ const announce_correct = function (player) {
 
 const announce_wrong = function (player, button) {
     status_message.textContent = (
-        "Player " + player + ": not a match — try again."
+        "Player " + player + ": not a match. Try again."
     );
     button.classList.add("wrong");
     button.addEventListener(
@@ -108,8 +107,8 @@ const random_position = function (radius_percent, placed, attempts) {
     return {"x": x, "y": y, "radius": radius_percent};
 };
 
-// Gives each symbol a random size and a non-overlapping random position.
-// The largest symbols are placed first, while there is the most room.
+// Give each symbol a random size and position, with no overlaps.
+// Place the biggest ones first, while there is the most space.
 const place_symbols = function (card) {
     const sized_symbols = card.map(function (symbol) {
         return {
@@ -196,10 +195,10 @@ const show_result = function () {
     const winner = Dobble.winner(game);
     if (winner === 0) {
         result_message.textContent = (
-            "It's a draw — " + Dobble.score(1, game) + " each!"
+            "It's a draw, " + Dobble.score(1, game) + " each!"
         );
     } else {
-        const other_player = 3 - winner; // 1 becomes 2 and 2 becomes 1.
+        const other_player = 3 - winner; // Turns 1 into 2 and 2 into 1.
         result_message.textContent = (
             "Player " + winner + " wins "
             + Dobble.score(winner, game) + " to "
