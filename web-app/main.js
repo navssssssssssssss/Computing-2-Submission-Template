@@ -1,8 +1,7 @@
 import R from "./ramda.js";
 import Dobble from "./Dobble.js";
 
-// It's a list of 13 pictures and names where each symbol's number is its position in the list, 
-// so main.js can turn the game's plain symbol numbers into the images.
+// Each symbol's image and name. The array position is its id.
 const symbols = [
     {"image": "./assets/instant_noodles.png", "name": "Instant noodles"},
     {"image": "./assets/energy_drink.png", "name": "Energy drink"},
