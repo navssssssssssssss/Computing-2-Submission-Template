@@ -5,7 +5,7 @@ import R from "./ramda.js";
  * players race to spot it.
  * https://en.wikipedia.org/wiki/Dobble
  * @namespace Dobble
- * @author Your Name
+ * @author Vaishnavi Garlapalli
  * @version 2025/26
  */
 const Dobble = Object.create(null);

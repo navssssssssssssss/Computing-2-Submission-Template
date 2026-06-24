@@ -112,7 +112,10 @@ const random_position = function (radius_percent, placed, attempts) {
 // The largest symbols are placed first, while there is the most room.
 const place_symbols = function (card) {
     const sized_symbols = card.map(function (symbol) {
-        return {"symbol": symbol, "scale": random_between(min_scale, max_scale)};
+        return {
+            "scale": random_between(min_scale, max_scale),
+            "symbol": symbol
+        };
     });
     const largest_first = R.sort(
         (first, second) => second.scale - first.scale,
