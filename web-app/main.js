@@ -1,9 +1,8 @@
-/*jslint browser */
 import R from "./ramda.js";
 import Dobble from "./Dobble.js";
 
-// Image and name for each symbol. Its position in the list is its id.
-// Put the matching art in the assets folder.
+// It's a list of 13 pictures and names where each symbol's number is its position in the list, 
+// so main.js can turn the game's plain symbol numbers into the images.
 const symbols = [
     {"image": "./assets/instant_noodles.png", "name": "Instant noodles"},
     {"image": "./assets/energy_drink.png", "name": "Energy drink"},
@@ -26,7 +25,7 @@ const full_turn_radians = 2 * Math.PI;
 const max_tilt_degrees = 50;
 const min_scale = 0.6;
 const max_scale = 1.35;
-// Roughly half a symbol's width, as a percent of the card.
+// Half a symbol's width, written as a percentage of the card.
 // These keep symbols from overlapping or spilling off the edge.
 const symbol_radius_percent = 10;
 const edge_margin_percent = 1;
@@ -108,7 +107,7 @@ const random_position = function (radius_percent, placed, attempts) {
 };
 
 // Give each symbol a random size and position, with no overlaps.
-// Place the biggest ones first, while there is the most space.
+// Placing the biggest ones first.
 const place_symbols = function (card) {
     const sized_symbols = card.map(function (symbol) {
         return {

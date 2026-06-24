@@ -1,6 +1,6 @@
 import R from "./ramda.js";
 /**
- * Dobble.js is a module to model and play "Dobble" (also "Spot It!"),
+ * Dobble.js is a module to model and play "Dobble",
  * a fast-paced game in which any two cards share exactly one symbol and
  * players race to spot it.
  * https://en.wikipedia.org/wiki/Dobble
